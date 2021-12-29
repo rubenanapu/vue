@@ -1,7 +1,7 @@
 const app = Vue.createApp({
   data() {
     return {
-      counter: 0,
+      counter: 10,
       incrementBy: 7,
       name: "to be set",
       fullName: "to be set",

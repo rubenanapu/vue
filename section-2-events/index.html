@@ -24,7 +24,7 @@
       <button v-on:click="decrementCounter(incrementBy)">
         Decrement {{incrementBy}} (normal/left button)
       </button>
-      <p>Result: {{ counter }}</p>
+      <p>Result: {{ counter }} <span v-once>(Initial: {{counter}})</span></p>
       <input
         type="text"
         v-on:keyup="updateName"
