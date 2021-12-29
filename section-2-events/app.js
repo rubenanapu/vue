@@ -4,6 +4,14 @@ const app = Vue.createApp({
       counter: 0,
     };
   },
+  methods: {
+    incrementCounter() {
+      this.counter++;
+    },
+    decrementCounter() {
+      this.counter--;
+    },
+  },
 });
 
-app.mount('#events');
+app.mount("#events");
