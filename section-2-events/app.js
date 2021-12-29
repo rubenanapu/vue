@@ -6,6 +6,7 @@ const app = Vue.createApp({
       name: "to be set",
       fullName: "to be set",
       enterPressedValue: "",
+      twoWayBinding: "",
     };
   },
   methods: {

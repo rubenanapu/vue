@@ -43,6 +43,8 @@
       <form v-on:submit.prevent="submitForm">
         <button>Sign Up</button>
       </form>
+      <input v-model="twoWayBinding" type="text" placeholder="two-way binding"/>
+      <p>{{twoWayBinding}} (v-on:* not needed because of v-model)</p>
     </section>
   </body>
 </html>
