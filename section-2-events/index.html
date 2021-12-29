@@ -25,7 +25,12 @@
         Decrement {{incrementBy}} (normal/left button)
       </button>
       <p>Result: {{ counter }}</p>
-      <input type="text" v-on:keyup="updateName" placeholder="Your name here" />
+      <input
+        type="text"
+        v-on:keyup="updateName"
+        v-on:keyup.enter="enterPressed"
+        placeholder="Your name (and press enter)"
+      />
       &nbsp;
       <input
         type="text"
@@ -34,6 +39,7 @@
       />
       <p>Your name: {{name}}</p>
       <p>Your name and surname: {{fullName}}</p>
+      <p v-html="enterPressedValue"></p>
       <form v-on:submit.prevent="submitForm">
         <button>Sign Up</button>
       </form>

@@ -5,6 +5,7 @@ const app = Vue.createApp({
       incrementBy: 7,
       name: "to be set",
       fullName: "to be set",
+      enterPressedValue: "",
     };
   },
   methods: {
@@ -23,6 +24,9 @@ const app = Vue.createApp({
     submitForm(event) {
       // event.preventDefault() was replaced with v-on:submit.prevent
       alert("Submitted (and page not reloaded because of v-on:submit.prevent)");
+    },
+    enterPressed(event) {
+      this.enterPressedValue = '<i style="color: red">Enter Pressed</i>';
     },
   },
 });
