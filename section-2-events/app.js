@@ -20,6 +20,10 @@ const app = Vue.createApp({
     setFullName(event, lastName) {
       this.fullName = event.target.value + " " + lastName;
     },
+    submitForm(event) {
+      // event.preventDefault() was replaced with v-on:submit.prevent
+      alert("Submitted (and page not reloaded because of v-on:submit.prevent)");
+    },
   },
 });
 

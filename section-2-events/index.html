@@ -18,15 +18,15 @@
     </header>
     <section id="events">
       <h2>Events in Action</h2>
-      <button v-on:click="incrementCounter(incrementBy)">
-        Increment {{incrementBy}}
+      <button v-on:click.right="incrementCounter(incrementBy)">
+        Increment {{incrementBy}} (right button)
       </button>
       <button v-on:click="decrementCounter(incrementBy)">
-        Decrement {{incrementBy}}
+        Decrement {{incrementBy}} (normal/left button)
       </button>
       <p>Result: {{ counter }}</p>
       <input type="text" v-on:keyup="updateName" placeholder="Your name here" />
-      <br />
+      &nbsp;
       <input
         type="text"
         v-on:input="setFullName($event, 'Alves')"
@@ -34,6 +34,9 @@
       />
       <p>Your name: {{name}}</p>
       <p>Your name and surname: {{fullName}}</p>
+      <form v-on:submit.prevent="submitForm">
+        <button>Sign Up</button>
+      </form>
     </section>
   </body>
 </html>
