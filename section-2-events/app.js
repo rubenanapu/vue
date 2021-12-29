@@ -9,7 +9,17 @@ const app = Vue.createApp({
       twoWayBinding: "",
     };
   },
+  computed: {
+    // called only when specific dependencies (this.name) changes (ideal for outputting).
+    fullname() {
+      if (this.name === "") {
+        return "";
+      }
+      return this.name + " Nascimento";
+    },
+  },
   methods: {
+    //called whenever ANYthing in the page is changed (not ideal for outputting, but ideal for v-on:*)
     incrementCounter(number) {
       this.counter += number;
     },
