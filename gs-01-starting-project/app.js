@@ -1,17 +1,17 @@
 Vue.createApp({
-    data(){
-        return {
-            goals: [],
-            enteredValue: ''
-        }
+  data() {
+    return {
+      goals: [],
+      enteredValue: "",
+    };
+  },
+  methods: {
+    addGoal() {
+      this.goals.push(this.enteredValue);
+      this.enteredValue = "";
     },
-    methods: {
-        addGoal(){
-            this.goals.push(this.enteredValue);
-            this.enteredValue = '';
-        }
-    }
-}).mount('#vueApp');
+  },
+}).mount("#vueApp");
 
 // const inputEl = document.querySelector('input');
 // const buttonEl = document.querySelector('button');
