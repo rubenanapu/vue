@@ -25,6 +25,15 @@
         Decrement {{incrementBy}}
       </button>
       <p>Result: {{ counter }}</p>
+      <input type="text" v-on:keyup="updateName" placeholder="Your name here" />
+      <br />
+      <input
+        type="text"
+        v-on:input="setFullName($event, 'Alves')"
+        placeholder="Your name with default surname"
+      />
+      <p>Your name: {{name}}</p>
+      <p>Your name and surname: {{fullName}}</p>
     </section>
   </body>
 </html>
