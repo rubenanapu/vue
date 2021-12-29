@@ -20,6 +20,7 @@
       <h2>My Course Goal</h2>
       <p>Randon Value (reload the page): <br> {{ outputGoal() }}</p>
       <p>Learn more <a v-bind:href="vueLink" target="_vue">about Vue!</a></p>
+      <p v-html="pureHtml"></p>
     </section>
   </body>
 </html>

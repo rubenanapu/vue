@@ -4,6 +4,7 @@ const app = Vue.createApp({
       courseGoal1: "Finish the course and learn Vue!",
       courseGoal2: "Master Vue and build amazing apps!",
       vueLink: "https://vuejs.org",
+      pureHtml: 'This is a <i style="color: red">Pure HTML</i> variable. Be careful!'
     };
   },
   methods: {
