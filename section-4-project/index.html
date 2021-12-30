@@ -26,12 +26,22 @@
       <section id="player" class="container">
         <h2>Your Health</h2>
         <div class="healthbar">
-          <div class="healthbar__value" :style="playerCss">{{playerHealth}}</div>
+          <div class="healthbar__value" :style="playerCss">
+            {{playerHealth}}
+          </div>
         </div>
+      </section>
+      <section class="container" v-if="winner">
+        <h2>Game Over</h2>
+        <h3 v-if="winner == 'enemy'">You Lost</h3>
+        <h3 v-else-if="winner == 'player'">You Won</h3>
+        <h3 v-else>It's a draw</h3>
       </section>
       <section id="controls">
         <button @click="attackEnemy">ATTACK</button>
-        <button :disabled="mayUseSpecialAttack" @click="specialAttack">SPECIAL ATTACK</button>
+        <button :disabled="mayUseSpecialAttack" @click="specialAttack">
+          SPECIAL ATTACK
+        </button>
         <button @click="healPlayer">HEAL</button>
         <button>SURRENDER</button>
       </section>
