@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Basics</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/vue@next" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Vue Events</h1>
+    </header>
+    <section id="events">
+      <h2>Events in Action</h2>
+      <button @click.right="incrementCounter(incrementBy)">
+        Increment {{incrementBy}} (right button)
+      </button>
+      <button @click="decrementCounter(incrementBy)">
+        Decrement {{incrementBy}} (normal/left button)
+      </button>
+      <p>Result: {{ counter }} <span v-once>(Initial: {{counter}})</span></p>
+      <input
+        type="text"
+        @keyup="updateName"
+        @keyup.enter="enterPressed"
+        placeholder="Your name (and press enter)"
+      />
+      &nbsp;
+      <input
+        type="text"
+        @input="setFullName(@event, 'Alves')"
+        placeholder="Your name with default surname"
+      />
+      <p>Your name: {{name}}</p>
+      <p>Your name and surname: {{fullName}}</p>
+      <p>Duplicated name (watch:{}): {{duplicatedName}}</p>
+      <p v-html="enterPressedValue"></p>
+      <form @submit.prevent="submitForm">
+        <button>Sign Up</button>
+      </form>
+      <input
+        v-model="twoWayBinding"
+        type="text"
+        placeholder="two-way binding"
+      />
+      <p>{{twoWayBinding}} (v-on:*/@* not needed because of v-model)</p>
+      <p>FulName (computed): {{fullname}}</p>
+    </section>
+  </body>
+</html>
