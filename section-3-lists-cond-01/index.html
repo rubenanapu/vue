@@ -25,7 +25,7 @@
       </p>
       <ul v-else>
         <!-- <li v-for="goal in goals">{{goal}}</li> -->
-        <li v-for="(goal, index) in goals" @click="removeGoal(index)">
+        <li v-for="(goal, index) in goals" :key="index" </li> @click="removeGoal(index)">
           {{goal}} (<small>click to del)</small>
         </li>
         <!-- <li v-for="value in {name: 'Jesus', who: 'Messiah' }"> </li> -->
