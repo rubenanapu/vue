@@ -7,15 +7,23 @@ const app = Vue.createApp({
       fullName: "to be set",
       enterPressedValue: "",
       twoWayBinding: "",
+      duplicatedName: "",
     };
   },
   computed: {
     // called only when specific dependencies (this.name) changes (ideal for outputting).
+    // If we deal with many fields, "computed" is better than many "watch"es
     fullname() {
       if (this.name === "") {
         return "";
       }
       return this.name + " Nascimento";
+    },
+  },
+  watch: {
+    // watch "data" and "computed" properties changes
+    name(newValue, oldValue) {
+      this.duplicatedName = newValue + newValue;
     },
   },
   methods: {
