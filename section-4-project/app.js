@@ -13,9 +13,15 @@ const app = Vue.createApp({
   },
   computed: {
     enemyCss() {
+      if (this.enemyHealth < 0) {
+        return { width: "0%" };
+      }
       return { width: this.enemyHealth + "%" };
     },
     playerCss() {
+      if (this.playerHealth < 0) {
+        return { width: "0%" };
+      }
       return { width: this.playerHealth + "%" };
     },
     mayUseSpecialAttack() {
@@ -43,6 +49,12 @@ const app = Vue.createApp({
     },
   },
   methods: {
+    startNewGame() {
+      this.enemyHealth = 100;
+      this.playerHealth = 100;
+      this.round = 0;
+      this.winner = null;
+    },
     attackEnemy() {
       const damage = getRandom(7, 12);
       this.enemyHealth -= damage;
@@ -65,6 +77,11 @@ const app = Vue.createApp({
         this.playerHealth = 100;
       }
       this.attackPlayer();
+    },
+    surrender() {
+      alert(
+        "Surrender does not exist in the vocabulary.\nGo back to the fight!"
+      );
     },
   },
 });
