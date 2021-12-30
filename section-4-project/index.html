@@ -20,17 +20,17 @@
       <section id="enemy" class="container">
         <h2>Enemy Health</h2>
         <div class="healthbar">
-          <div class="healthbar__value"></div>
+          <div class="healthbar__value" :style="enemyCss"></div>
         </div>
       </section>
       <section id="player" class="container">
         <h2>Your Health</h2>
         <div class="healthbar">
-          <div class="healthbar__value"></div>
+          <div class="healthbar__value" :style="playerCss"></div>
         </div>
       </section>
       <section id="controls">
-        <button>ATTACK</button>
+        <button @click="attackEnemy">ATTACK</button>
         <button>SPECIAL ATTACK</button>
         <button>HEAL</button>
         <button>SURRENDER</button>

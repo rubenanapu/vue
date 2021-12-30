@@ -1,5 +1,5 @@
 function getRandom(min, max) {
-  Math.round(Math.random() * (max - min) + min);
+  return Math.round(Math.random() * (max - min) + min);
 }
 
 const app = Vue.createApp({
@@ -9,15 +9,23 @@ const app = Vue.createApp({
       playerHealth: 100,
     };
   },
+  computed: {
+    enemyCss() {
+      return { width: this.enemyHealth + "%" };
+    },
+    playerCss() {
+      return { width: this.playerHealth + "%" };
+    },
+  },
   methods: {
     attackEnemy() {
       const damage = getRandom(7, 12);
-      self.enemyHealth -= damage;
-      self.attackPlayer();
+      this.enemyHealth -= damage;
+      this.attackPlayer();
     },
     attackPlayer() {
-      const damage = getRandom(7, 12);
-      self.playerHealth -= damage;
+      const damage = getRandom(8, 16);
+      this.playerHealth -= damage;
     },
   },
 });
