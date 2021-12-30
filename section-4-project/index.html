@@ -46,7 +46,12 @@
       </section>
       <section id="log" class="container">
         <h2>Battle Log</h2>
-        <ul></ul>
+        <ul>
+          <li v-for="log in logs">
+            <span style="text-transform: capitalize">{{log.who}}</span>
+            {{log.what}} <span class="log--damage">{{log.value}}</span>
+          </li>
+        </ul>
       </section>
     </div>
   </body>

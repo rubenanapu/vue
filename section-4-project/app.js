@@ -9,6 +9,7 @@ const app = Vue.createApp({
       playerHealth: 100,
       round: 0,
       winner: null,
+      logs: [],
     };
   },
   computed: {
@@ -54,20 +55,24 @@ const app = Vue.createApp({
       this.playerHealth = 100;
       this.round = 0;
       this.winner = null;
+      this.logs = [];
     },
     attackEnemy() {
       const damage = getRandom(7, 12);
       this.enemyHealth -= damage;
+      this.addLog("player", "attack", damage);
       this.attackPlayer();
     },
     attackPlayer() {
       this.round++;
       const damage = getRandom(8, 16);
       this.playerHealth -= damage;
+      this.addLog("enemy", "attack", damage);
     },
     specialAttack() {
       const damage = getRandom(15, 25);
       this.enemyHealth -= damage;
+      this.addLog("player", "special-attack", damage);
       this.attackPlayer();
     },
     healPlayer() {
@@ -76,12 +81,17 @@ const app = Vue.createApp({
       if (this.playerHealth > 100) {
         this.playerHealth = 100;
       }
+      this.addLog("player", "heal", health);
       this.attackPlayer();
     },
     surrender() {
       alert(
         "Surrender does not exist in the vocabulary.\nGo back to the fight!"
       );
+      this.addLog("player", "did-not-surrender", "");
+    },
+    addLog(who, what, value) {
+      this.logs.unshift({ who: who, what: what, value: value });
     },
   },
 });
