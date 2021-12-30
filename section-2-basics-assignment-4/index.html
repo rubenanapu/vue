@@ -17,20 +17,20 @@
       <h1>Vue Styling</h1>
     </header>
     <section id="assignment">
+      <p>Please type user1 or user2</p>
       <!-- 1) Fetch the user input and use it as a CSS class -->
       <!-- The entered class should be added to the below paragraph -->
-      <input type="text" />
+      <input v-model="userInput" type="text" />
       <!-- (available classes: "user1", "user2") -->
-      <p>
-        Style me!
-      </p>
-      <button>Toggle Paragraph</button>
+      <p :class="[visibleInvisible, cssClass]">Style me!</p>
+      <button @click="toggleParagraph">Toggle Paragraph</button>
       <!-- 2) Use the "visible" and "hidden" classes to show/ hide the above paragraph -->
       <!-- Clicking the button should toggle between the two options -->
 
       <!-- 3) Add dynamic inline styling to the below paragraph and let the user enter a background-color -->
-      <input type="text" />
-      <p>Style me inline!</p>
+      <p>Please type a color for background-color below:</p>
+      <input v-model="bgColor" type="text" />
+      <p :style="{backgroundColor: bgColor}">Style me inline!</p>
     </section>
   </body>
 </html>
