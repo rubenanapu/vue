@@ -25,12 +25,12 @@
       <div
         class="demo"
         @click="boxSelected('B')"
-        :style="{borderColor: bSelected ? 'red' : 'gray'}"
+        :class="{activated: bSelected}"
       ></div>
       <div
         class="demo"
         @click="boxSelected('C')"
-        :style="{borderColor: cSelected ? 'red' : 'gray'}"
+        :class="{activated: cSelected}"
       ></div>
     </section>
   </body>
