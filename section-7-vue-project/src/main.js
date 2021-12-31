@@ -1,3 +1,5 @@
-import { createApp } from 'vue';
+import { createApp } from "vue";
 
-createApp({}).mount('');
+import AppExportedData from "./App.vue";
+
+createApp(AppExportedData).mount("#app");
