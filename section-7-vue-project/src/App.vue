@@ -2,8 +2,8 @@
   <section>
     <h2>Friends list</h2>
     <ul>
-      <li></li>
-      <li></li>
+      <friend-contact />
+      <friend-contact />
     </ul>
   </section>
 </template>
@@ -16,6 +16,7 @@ export default {
         {
           id: "jhon",
           name: "Jhon Baptist",
+          bio: "The Prophet",
         },
       ],
     };
