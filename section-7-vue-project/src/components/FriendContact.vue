@@ -28,6 +28,17 @@ export default {
       //   },
     },
   },
+  //   emits: ['toggle-favorite'], // Simpler way
+  emits: {
+    // More weell-defined way of defining events
+    "toggle-favorite": function (id) {
+      if (id) {
+        return true;
+      }
+      console.warn("Emitter needs to provide 'id' parameter");
+      return false;
+    },
+  },
   data() {
     return {
       isVisible: false,
@@ -50,6 +61,10 @@ export default {
       // We can give the event the name we want. We can also send as many args
       // as we want to the listeners
       this.$emit("toggle-favorite", this.id);
+
+      // Below we don't provide an id. The toggle-event defined in "emits"
+      // will raise an error when the code below is called
+      //   this.$emit("toggle-favorite");
     },
   },
 };
