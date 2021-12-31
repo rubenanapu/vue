@@ -2,8 +2,8 @@
   <section>
     <header><h1>Friends list</h1></header>
     <ul>
-      <friend-contact />
-      <friend-contact />
+      <friend-contact first-name="Abraham" person-bio="Father of Faith" />
+      <friend-contact first-name="Jacob" person-bio="Israel" />
     </ul>
   </section>
 </template>
