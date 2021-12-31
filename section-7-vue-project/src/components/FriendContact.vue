@@ -4,6 +4,8 @@
     <button @click="toggleBio">{{ isVisible ? "Hide" : "Show" }} Bio</button>
     &nbsp;
     <button @click="toggleFavorite">(un)Favorite</button>
+    &nbsp;
+    <button @click="$emit('friend-deleted', id)">Delete</button>
     <p v-if="isVisible">{{ personBio }}</p>
   </li>
 </template>
@@ -28,17 +30,16 @@ export default {
       //   },
     },
   },
-  //   emits: ['toggle-favorite'], // Simpler way
-  emits: {
-    // More weell-defined way of defining events
-    "toggle-favorite": function (id) {
-      if (id) {
-        return true;
-      }
-      console.warn("Emitter needs to provide 'id' parameter");
-      return false;
-    },
-  },
+    emits: ['toggle-favorite', 'friend-deleted'], // Simpler way
+  // emits: { // More weell-defined way of defining events
+  //   "toggle-favorite": function (id) {
+  //     if (id) {
+  //       return true;
+  //     }
+  //     console.warn("Emitter needs to provide 'id' parameter");
+  //     return false;
+  //   },
+  // },
   data() {
     return {
       isVisible: false,

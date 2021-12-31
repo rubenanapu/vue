@@ -1,8 +1,8 @@
 <template>
-  <form>
+  <form @submit.prevent="addFriend">
     <input type="text" v-model="name" />
     <input type="text" v-model="bio" />
-    <button @click.prevent="addFriend">Add Friend</button>
+    <button>Add Friend</button>
   </form>
 </template>
 

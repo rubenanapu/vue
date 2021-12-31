@@ -12,6 +12,7 @@
         :person-bio="friend.bio"
         :is-favorite="friend.isFavorite"
         @toggle-favorite="toggleFavorite"
+        @friend-deleted="deleteFriend"
       />
     </ul>
   </section>
@@ -55,6 +56,10 @@ export default {
         bio: bio,
         isFavorite: false,
       });
+    },
+    deleteFriend(friendId) {
+      // creating a new array with itens where friend.id != id
+      this.friends = this.friends.filter((friend) => friend.id !== friendId);
     },
   },
 };
