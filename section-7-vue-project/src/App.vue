@@ -2,7 +2,7 @@
   <section>
     <header><h1>Friends list</h1></header>
     <ul>
-      <friend-contact first-name="Abraham" person-bio="Father of Faith" />
+      <friend-contact first-name="Abraham" person-bio="Father of Faith" is-favorite="1"/>
       <friend-contact first-name="Jacob" person-bio="Israel" />
     </ul>
   </section>
