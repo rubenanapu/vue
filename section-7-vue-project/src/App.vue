@@ -2,8 +2,14 @@
   <section>
     <header><h1>Friends list</h1></header>
     <ul>
-      <friend-contact first-name="Abraham" person-bio="Father of Faith" is-favorite="1"/>
-      <friend-contact first-name="Jacob" person-bio="Israel" />
+      <!-- ":key" is mandatory when using "for" in "components" -->
+      <friend-contact
+        v-for="friend in friends"
+        :key="friend.id"
+        :first-name="friend.name"
+        :person-bio="friend.bio"
+        :is-favorite="true"
+      />
     </ul>
   </section>
 </template>
@@ -14,9 +20,19 @@ export default {
     return {
       friends: [
         {
+          id: "abraham",
+          name: "Abraham",
+          bio: "Father of Faith",
+        },
+        {
+          id: "jacob",
+          name: "Jacob",
+          bio: "Israel, son of Abraham",
+        },
+        {
           id: "jhon",
           name: "Jhon Baptist",
-          bio: "The Prophet",
+          bio: "The last Prophet",
         },
       ],
     };

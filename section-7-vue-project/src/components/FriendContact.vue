@@ -11,18 +11,20 @@
 <script>
 export default {
   // Can be passed like first-name and peron-bio when calling <friend-contact />
+  // https://v3.vuejs.org/guide/component-props.html#passing-static-or-dynamic-props
+  //
   //   props: ["firstName", "personBio", "isFavorite"],
   //   props: {firstName:String, personBio: String, isFavorite: String},
   props: {
     firstName: { type: String, required: true },
     personBio: { type: String, required: true },
     isFavorite: {
-      type: String,
+      type: Boolean,
       required: false,
-      default: "0",
-      validator: function (value) {
-        return value === "0" || value === "1";
-      },
+      default: false,
+      //   validator: function (value) {
+      //     return value === "0" || value === "1";
+      //   },
     },
   },
   data() {
@@ -33,7 +35,7 @@ export default {
         name: "Jesus Christ",
         bio: "The Savior",
       },
-      isFriendFavorite: this.isFavorite === "1", // using props as initial value
+      isFriendFavorite: this.isFavorite, // using props as initial value
     };
   },
   methods: {
