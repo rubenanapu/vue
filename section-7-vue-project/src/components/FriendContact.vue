@@ -11,7 +11,20 @@
 <script>
 export default {
   // Can be passed like first-name and peron-bio when calling <friend-contact />
-  props: ["firstName", "personBio", "isFavorite"],
+  //   props: ["firstName", "personBio", "isFavorite"],
+  //   props: {firstName:String, personBio: String, isFavorite: String},
+  props: {
+    firstName: { type: String, required: true },
+    personBio: { type: String, required: true },
+    isFavorite: {
+      type: String,
+      required: false,
+      default: "0",
+      validator: function (value) {
+        return value === "0" || value === "1";
+      },
+    },
+  },
   data() {
     return {
       isVisible: false,
