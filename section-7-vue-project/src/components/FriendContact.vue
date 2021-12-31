@@ -1,7 +1,7 @@
 <template>
   <li>
     <h2>{{ friend.name }}</h2>
-    <button @click="toggleBio">Show Bio</button>
+    <button @click="toggleBio">{{ isVisible ? "Hide" : "Show" }} Bio</button>
     <p v-if="isVisible">{{ friend.bio }}</p>
   </li>
 </template>
