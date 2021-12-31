@@ -6,9 +6,11 @@
       <friend-contact
         v-for="friend in friends"
         :key="friend.id"
+        :id="friend.id"
         :first-name="friend.name"
         :person-bio="friend.bio"
-        :is-favorite="true"
+        :is-favorite="friend.isFavorite"
+        @toggle-favorite="toggleFavorite"
       />
     </ul>
   </section>
@@ -23,19 +25,28 @@ export default {
           id: "abraham",
           name: "Abraham",
           bio: "Father of Faith",
+          isFavorite: true,
         },
         {
           id: "jacob",
           name: "Jacob",
           bio: "Israel, son of Abraham",
+          isFavorite: false,
         },
         {
           id: "jhon",
           name: "Jhon Baptist",
           bio: "The last Prophet",
+          isFavorite: false,
         },
       ],
     };
+  },
+  methods: {
+    toggleFavorite(friendId) {
+      const theFriend = this.friends.find((friend) => friend.id == friendId);
+      theFriend.isFavorite = !theFriend.isFavorite;
+    },
   },
 };
 </script>

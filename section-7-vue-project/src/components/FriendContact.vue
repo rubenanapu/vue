@@ -1,6 +1,6 @@
 <template>
   <li>
-    <h2>{{ firstName }} {{ isFriendFavorite ? "(Favorite)" : "" }}</h2>
+    <h2>{{ firstName }} {{ isFavorite ? "(Favorite)" : "" }}</h2>
     <button @click="toggleBio">{{ isVisible ? "Hide" : "Show" }} Bio</button>
     &nbsp;
     <button @click="toggleFavorite">(un)Favorite</button>
@@ -16,6 +16,7 @@ export default {
   //   props: ["firstName", "personBio", "isFavorite"],
   //   props: {firstName:String, personBio: String, isFavorite: String},
   props: {
+    id: { type: String, required: true },
     firstName: { type: String, required: true },
     personBio: { type: String, required: true },
     isFavorite: {
@@ -35,7 +36,7 @@ export default {
         name: "Jesus Christ",
         bio: "The Savior",
       },
-      isFriendFavorite: this.isFavorite, // using props as initial value
+      //   isFriendFavorite: this.isFavorite, // using props as initial value
     };
   },
   methods: {
@@ -44,7 +45,11 @@ export default {
       // We can now use props (properties): this.firstName
     },
     toggleFavorite() {
-      this.isFriendFavorite = !this.isFriendFavorite;
+      //   this.isFriendFavorite = !this.isFriendFavorite;
+
+      // We can give the event the name we want. We can also send as many args
+      // as we want to the listeners
+      this.$emit("toggle-favorite", this.id);
     },
   },
 };
