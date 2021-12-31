@@ -1,7 +1,6 @@
 const app = Vue.createApp({
   data() {
     return {
-      isVisible: false,
       friends: [
         {
           id: "manuel",
@@ -16,6 +15,33 @@ const app = Vue.createApp({
           email: "julie@localhost.com",
         },
       ],
+    };
+  },
+});
+
+// Always use dash (-) to avoid clashing with HTML elements, like 'h2', for example.
+// Components are basically HTML tags
+// Components are like mini apps.
+app.component("friend-contact", {
+  template: `
+    <li>
+        <h2>{{friend.name}}</h2>
+        <button @click="toggleVisibility">Show Details</button>
+        <ul v-if="isVisible">
+          <li><strong>Phone:</strong> {{friend.phone}}</li>
+          <li><strong>Email:</strong> {{friend.email}}</li>
+        </ul>
+    </li>
+    `,
+  data() {
+    return {
+      isVisible: false,
+      friend: {
+        id: "jesus",
+        name: "Jesus Christ",
+        phone: "prayer",
+        email: "read@the-bible.com",
+      },
     };
   },
   methods: {
