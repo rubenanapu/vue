@@ -1,6 +1,7 @@
 <template>
   <section>
     <header><h1>Friends list</h1></header>
+    <add-new-friend-form @friend-added="addFriend" />
     <ul>
       <!-- ":key" is mandatory when using "for" in "components" -->
       <friend-contact
@@ -46,6 +47,14 @@ export default {
     toggleFavorite(friendId) {
       const theFriend = this.friends.find((friend) => friend.id == friendId);
       theFriend.isFavorite = !theFriend.isFavorite;
+    },
+    addFriend(id, name, bio) {
+      this.friends.push({
+        id: id,
+        name: name,
+        bio: bio,
+        isFavorite: false,
+      });
     },
   },
 };
