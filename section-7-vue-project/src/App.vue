@@ -1,9 +1,19 @@
 <template>
   <section>
     <header><h1>Friends list</h1></header>
+    <add-new-friend-form @friend-added="addFriend" />
     <ul>
-      <friend-contact />
-      <friend-contact />
+      <!-- ":key" is mandatory when using "for" in "components" -->
+      <friend-contact
+        v-for="friend in friends"
+        :key="friend.id"
+        :id="friend.id"
+        :first-name="friend.name"
+        :person-bio="friend.bio"
+        :is-favorite="friend.isFavorite"
+        @toggle-favorite="toggleFavorite"
+        @friend-deleted="deleteFriend"
+      />
     </ul>
   </section>
 </template>
@@ -14,12 +24,43 @@ export default {
     return {
       friends: [
         {
+          id: "abraham",
+          name: "Abraham",
+          bio: "Father of Faith",
+          isFavorite: true,
+        },
+        {
+          id: "jacob",
+          name: "Jacob",
+          bio: "Israel, son of Abraham",
+          isFavorite: false,
+        },
+        {
           id: "jhon",
           name: "Jhon Baptist",
-          bio: "The Prophet",
+          bio: "The last Prophet",
+          isFavorite: false,
         },
       ],
     };
+  },
+  methods: {
+    toggleFavorite(friendId) {
+      const theFriend = this.friends.find((friend) => friend.id == friendId);
+      theFriend.isFavorite = !theFriend.isFavorite;
+    },
+    addFriend(id, name, bio) {
+      this.friends.push({
+        id: id,
+        name: name,
+        bio: bio,
+        isFavorite: false,
+      });
+    },
+    deleteFriend(friendId) {
+      // creating a new array with itens where friend.id != id
+      this.friends = this.friends.filter((friend) => friend.id !== friendId);
+    },
   },
 };
 </script>
