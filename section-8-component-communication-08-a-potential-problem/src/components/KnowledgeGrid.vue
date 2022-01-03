@@ -13,7 +13,8 @@
 
 <script>
 export default {
-  props: ['topics'],
-  emits: ['select-topic']
+  // props: ['topics'],
+  inject: ['topics'], // 'inject' access data `provide`d by any parent, not by children
+  emits: ['select-topic'],
 };
 </script>
