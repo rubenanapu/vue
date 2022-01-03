@@ -37,6 +37,7 @@ export default {
     // Children use the "inject" property
     return {
       topics: this.topics,
+      selectTopic: this.activateTopic,
     };
   },
   methods: {
