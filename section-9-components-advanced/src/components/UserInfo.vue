@@ -2,6 +2,9 @@
   <section>
     <base-card-slot>
       <template v-slot:myNamedSlot>
+        <!-- "v-slot:myNamedSlot" can be replaced just with "#myNamedSlot"
+        it works the same way
+        -->
         <header>
           <h3>{{ fullName }}</h3>
           <base-badge :type="role" :caption="role.toUpperCase()"></base-badge>
