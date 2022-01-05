@@ -1,5 +1,11 @@
 <template>
   <div>
+    <header>
+      <slot name="myNamedSlot"></slot>
+    </header>
+    <!-- When there is no name in slot, the name is "default" by default
+    We can only have ONE unnammed slot
+    -->
     <slot></slot>
   </div>
 </template>
